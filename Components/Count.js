@@ -5,9 +5,7 @@ import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 import array from './Dexterity';
 export default function Count() {
   const [count, setCount] = React.useState(0)
-  if(remainingTime===0){
-    console.log(array)
-    }
+ 
   return (
     <View style={styles.container}>
       <CountdownCircleTimer

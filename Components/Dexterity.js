@@ -40,13 +40,11 @@ class Dexterity extends Component {
        <View style={styles.countContainer}>
           <Text>Count: {count} {'\n'}
            fréquence:{count/30}{'\n'}
-           array :{}
-          
           </Text>
 
        
         </View>
-        console.log(array)
+ 
       </View>
      
     );
