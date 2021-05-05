@@ -33,7 +33,7 @@ class Dexterity extends Component {
           style={styles.button1}
           onPress={this.onPress}
         >
-          <Text >bnj </Text>
+          
     
         </TouchableOpacity>
         
