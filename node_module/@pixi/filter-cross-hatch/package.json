@@ -1,0 +1,35 @@
+{
+  "name": "@pixi/filter-cross-hatch",
+  "version": "4.1.0",
+  "main": "dist/filter-cross-hatch.cjs.js",
+  "bundle": "dist/filter-cross-hatch.js",
+  "description": "PixiJS filter to apply a cross-hatch black and white effect",
+  "author": "Mat Groves",
+  "contributors": [
+    "Matt Karl <matt@mattkarl.com>"
+  ],
+  "module": "dist/filter-cross-hatch.esm.js",
+  "types": "index.d.ts",
+  "homepage": "http://pixijs.com/",
+  "bugs": "https://github.com/pixijs/filters/issues",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixijs/filters.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "peerDependencies": {
+    "@pixi/core": "^6.0.0"
+  },
+  "devDependencies": {
+    "@pixi/core": "^6.0.0",
+    "@tools/fragments": "4.0.0"
+  },
+  "gitHead": "9c6a8161b7e5f669ca6726794d1fa3feb9dc44cf"
+}
