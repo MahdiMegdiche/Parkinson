@@ -1,10 +1,9 @@
 import React from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import Background from "../Components/Background";
 import { useNavigation } from "@react-navigation/native";
 import Logo from "../Components/Logo"
-const LandingScreen = () => {
+const PreDexterityScreen = () => {
   navigation = useNavigation();
   return (
     <View style={styles.ajustement}>
@@ -13,38 +12,33 @@ const LandingScreen = () => {
         colors={["#1985A1", "#1985A9", "#ffffff"]}
         style={styles.background}
       />
-      <Background
-        style={{
-          height: 300,
-          maxHeight: 300,
-          maxWidth: 300,
-          marginTop: 20,
-          marginLeft: 50,
-        }}
-      />
-      <View style={{alignItems:"center"}}><Logo style={{background:"red"}}/></View>
+      <View style={{alignItems:"center",marginBottom:"40%"}}><Logo/></View>
       <Text
         style={{
           fontWeight: "bold",
-          fontSize: 20,
+          fontSize: 30,
           marginLeft: 20,
           color: "#1985A1",
-          textAlign: "center"
+          textAlign: "center",
+          marginTop:"10%"
         }}
       >
-        Parkinson Better
+        DEXTERITY TEST
       </Text>
-      <View>
+        <Text style={{ color: "#373636", fontSize: 16,marginHorizontal:"5%" }}>
+        Place your phone on a flat surface, and position your arm on the same surface. {"\n"}
+Keep your wrist still and alternate tapping on the button with your index and middle finger, keeping a steady rhythm for 30 seconds.
+        </Text>
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          navigation.navigate("Pretests");
+          navigation.navigate("Dexterity");
         }}
       >
-        <Text style={{ color: "#f2f2f2", textAlign: "center", fontSize: 16 }}>
-          Start
+        <Text style={{ color: "#f2f2f2", textAlign: "center", fontSize: 16}}>
+          Start Test
         </Text>
-      </TouchableOpacity></View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -64,7 +58,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     top: 0,
-    height: 400,
+    height: 300,
   },
   ajustement: {
     flex: 1,
@@ -83,4 +77,4 @@ const styles = StyleSheet.create({
     marginBottom:"50%" 
   },
 });
-export default LandingScreen;
+export default PreDexterityScreen;

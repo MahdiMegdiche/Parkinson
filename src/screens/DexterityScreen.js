@@ -4,6 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import CountDown from "react-native-countdown-component";
 import { useNavigation } from "@react-navigation/native";
 let recordingPts = [];
+let x = [];
 const displayArray = (anyArray) => {
   arrayLog = "";
   for (let i = 0; i < anyArray.length; i++) {
@@ -42,44 +43,63 @@ const pointsValidity = (recordingPts) => {
   let nbInterval = 0;
   let aux = 0;
   let monotonyIntervals = [];
-  let tal3a = 0;
+  let pentepositive = 0;
   for (let i = 0; i < recordingPts.length; i++) {
     if (recordingPts[i] < recordingPts[i + 1]) {
-      tal3a += 1;
+      pentepositive += 1;
     }
   }
-  if (tal3a <= 16) {
-    console.log("décroissance globale");
+  if (pentepositive <= 16) {
+    x = [...x, "suspected"];
   }
-  if (tal3a > 16) {
-    console.log("croissance globale");
+  if (pentepositive > 16) {
+    x = [...x, "Healthy"];
   }
   return;
 };
 const score = (recordingPts) => {
   variance = calculVariance(recordingPts);
   console.log("Variance is ", variance);
-  validity = pointsValidity(recordingPts);
-  if (variance < 1) {
-    console.log("Dexterity test passed successfully");
-    navigation.navigate('Tremor', { DexterityTest: ['Healthy',recordingPts] })
+  if (variance < 1.5) {
+    x = [...x, "Healthy"];
+    // navigation.navigate('Tremor', { DexterityTest: [x,recordingPts] })
+  } else {
+    validity = pointsValidity(recordingPts);
   }
+  // console.log("Dexterity score", x);
+  return x;
 };
 const update = (countsPerSecond) => {
   recordingPts.push(countsPerSecond);
 };
 const DexterityScreen = () => {
+  const navigation = useNavigation();
   const [isCompleted, setCompleted] = useState(false);
   const [count, setCount] = useState(0);
   const [isButtonDisabled, setDisabled] = useState(false);
   const [started, setStarted] = useState(false);
+  const [result, setResult] = useState("");
   return (
     <View style={[styles.container, styles.centerElement]}>
       <View style={{ paddingBottom: 32 }}>
+      <Text
+        style={{
+          fontWeight: "bold",
+          fontSize: 30,
+          marginLeft: 20,
+          color: "#1985A1",
+          textAlign: "center",
+          marginBottom: "5%",
+        }}
+      >
+        DEXTERITY TEST
+      </Text>
+      <Text style={{ color: "#373636", textAlign: "center", fontSize: 16 ,marginBottom:"40%",marginHorizontal:2}}>Tap on the button alternating between your index and middle finger with a steady rhythm
+</Text>
         <CountDown
           digitStyle={{ backgroundColor: "#004677" }}
           digitTxtStyle={{ color: "#f2f2f2" }}
-          size={28}
+          size={40}
           until={30}
           running={started}
           timeToShow={["S"]}
@@ -89,8 +109,9 @@ const DexterityScreen = () => {
           }}
           onFinish={() => {
             setCompleted({ isCompleted: true });
-            console.log("The recorded points are:", recordingPts);
-            score(recordingPts);
+            // console.log("The recorded points are:", recordingPts);
+            let a=score(recordingPts);
+            setResult(a)
             return [false, 0];
           }}
         ></CountDown>
@@ -124,6 +145,12 @@ const DexterityScreen = () => {
             <View>
               <TouchableOpacity
                 style={[styles.button1, , styles.centerElement]}
+                onPress={() => {
+                  // console.log("ahi résultat",result)
+                  navigation.navigate("PreTremor", {
+                    Test: [result, recordingPts],
+                  });
+                }}
               >
                 <Text style={{ color: "#f2f2f2", fontSize: 16 }}>
                   Next Test
@@ -131,6 +158,7 @@ const DexterityScreen = () => {
               </TouchableOpacity>
               <Text
                 style={{
+                  color: "#373636",
                   marginTop: 20,
                   textAlign: "center",
                   fontWeight: "bold",
@@ -162,7 +190,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 100,
     marginRight: 100,
-    borderRadius: 15,
+    borderRadius: 30,
     height: "90%",
   },
   button2: {
