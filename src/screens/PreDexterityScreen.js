@@ -2,7 +2,8 @@ import React from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
-import Logo from "../Components/Logo"
+import Logo from "../Components/Logo";
+import DexteritySVG from "../Components/DexteritySVG";
 const PreDexterityScreen = () => {
   navigation = useNavigation();
   return (
@@ -12,7 +13,9 @@ const PreDexterityScreen = () => {
         colors={["#1985A1", "#1985A9", "#ffffff"]}
         style={styles.background}
       />
-      <View style={{alignItems:"center",marginBottom:"40%"}}><Logo/></View>
+      <View style={{ alignItems: "center", marginTop: "80%" }}>
+        <Logo />
+      </View>
       <Text
         style={{
           fontWeight: "bold",
@@ -20,22 +23,26 @@ const PreDexterityScreen = () => {
           marginLeft: 20,
           color: "#1985A1",
           textAlign: "center",
-          marginTop:"10%"
+          marginTop: "40%",
+          marginBottom:"10%"
         }}
       >
         DEXTERITY TEST
       </Text>
-        <Text style={{ color: "#373636", fontSize: 16,marginHorizontal:"5%" }}>
-        Place your phone on a flat surface, and position your arm on the same surface. {"\n"}
-Keep your wrist still and alternate tapping on the button with your index and middle finger, keeping a steady rhythm for 30 seconds.
-        </Text>
+      <Text style={{ color: "#373636", fontSize: 16, marginHorizontal: "5%" }}>
+        Place your phone on a flat surface, and position your arm on the same
+        surface. {"\n"}
+        Keep your wrist still and alternate tapping on the button with your
+        index and middle finger, keeping a steady rhythm for 30 seconds.
+      </Text>
+      <DexteritySVG style={{alignSelf:"center"}}/>
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
           navigation.navigate("Dexterity");
         }}
       >
-        <Text style={{ color: "#f2f2f2", textAlign: "center", fontSize: 16}}>
+        <Text style={{ color: "#f2f2f2", textAlign: "center", fontSize: 16 }}>
           Start Test
         </Text>
       </TouchableOpacity>
@@ -66,15 +73,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
   },
   button: {
-    justifyContent:"center",
-    alignItems:"center",
-    marginTop:40,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 40,
     backgroundColor: "#004777",
     padding: 20,
-    marginHorizontal:140,
+    marginHorizontal: 140,
     borderRadius: 60,
     height: "1%",
-    marginBottom:"50%" 
+    marginBottom: "60%",
   },
 });
 export default PreDexterityScreen;

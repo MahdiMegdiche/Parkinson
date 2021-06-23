@@ -26,15 +26,17 @@ const FinalScreen = ({ route, navigation }) => {
         style={styles.background}
       />
       <View style={{alignItems:"center",marginBottom:"60%"}}><Logo/></View>
-    <Text style={{ color: "#373636", textAlign: "center", fontSize: 18 ,marginTop:"5%",fontWeight:"bold",marginBottom:10,marginHorizontal:2}}>
+    <Text style={{ color: "#373636", textAlign: "center", fontSize: 18 ,marginTop:"5%",fontWeight:"bold",marginBottom:"15%",marginHorizontal:2}}>
     You have conducted the Dexterity and Rest Tremor Test successfully.
     </Text>
-    <Text style={{textAlign:"center"}}>
+    <Text style={{marginHorizontal:"3%"}}>
     Your Dexterity Test results show that you are likely {finalResultTest1}{"\n"}
     Your Rest Tremor Test results show that you are likely {tremorResult}
     </Text>
     <Text style={{textAlign:"center",color:colorx,fontWeight:"bold"}}>
       Final Result:{"\n"} 
+    </Text>
+    <Text style={{color:colorx,marginHorizontal:"3%"}}>
       {finalResult}
     </Text>
 </View>)

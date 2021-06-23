@@ -4,9 +4,9 @@
     "slug": "ParkinsonDetector",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/logo.png",
+    "icon": "./img/logo.png",
     "splash": {
-      "image": "./src/logo.png",
+      "image": "./img/logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,7 +21,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/logo.png",
+        "foregroundImage": "./img/logo.png",
         "backgroundColor": "#FFFFFF"
       }
     },
