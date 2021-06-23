@@ -148,7 +148,7 @@ const DexterityScreen = () => {
               }
             }}
           >
-            <Text style={{ color: "#f2f2f2", fontSize: 16 }}>Tap here</Text>
+            <Text style={{ color: "#f2f2f2",textAlign:"center", fontSize: 16 }}>Tap here</Text>
           </TouchableOpacity>
         )) ||
           (isCompleted && (
