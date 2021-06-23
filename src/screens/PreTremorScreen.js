@@ -16,7 +16,7 @@ const PreTremorScreen = ({ route, navigation }) => {
         colors={["#1985A1", "#1985A9", "#ffffff"]}
         style={styles.background}
       />
-      <View style={{ alignItems: "center", marginTop:"80%" }}>
+      <View style={{ alignItems: "center", marginTop: "80%" }}>
         <Logo />
       </View>
       <Text
@@ -27,7 +27,7 @@ const PreTremorScreen = ({ route, navigation }) => {
           color: "#1985A1",
           textAlign: "center",
           marginTop: "40%",
-          marginBottom:"10%"
+          marginBottom: "10%",
         }}
       >
         REST TREMOR TEST
@@ -38,7 +38,7 @@ const PreTremorScreen = ({ route, navigation }) => {
         Keep your hand in a resting position in the air, only your arm should be
         supported by your thigh.{" "}
       </Text>
-      <TremorSVG style={{alignSelf:"center"}}/>
+      <TremorSVG style={{ alignSelf: "center" }} />
       <TouchableOpacity
         style={styles.button}
         onPress={() => {

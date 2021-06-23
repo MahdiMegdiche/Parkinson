@@ -3,28 +3,28 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Gyroscope } from "expo-sensors";
 import { useNavigation } from "@react-navigation/native";
 const score = (recordings) => {
-let resultat="Healthy"
-recordings.map((i)=>{
-i.x=Math.abs(i.x);
-i.y=Math.abs(i.y);
-i.z=Math.abs(i.z);
-})
-recordings.map((i)=>{
-  i.x=i.x*0.16;
-  i.y=i.y*0.16;
-  i.z=i.z*0.16;
-  })
-sus=recordings.filter((i)=>{
-  (i.x>5)||(i.y>5)||(i.z>5)
-})
-if(sus.length>sus.length){
-  resultat="Suspect"
-}
-return resultat
+  let resultat = "Healthy";
+  recordings.map((i) => {
+    i.x = Math.abs(i.x);
+    i.y = Math.abs(i.y);
+    i.z = Math.abs(i.z);
+  });
+  recordings.map((i) => {
+    i.x = i.x * 0.16;
+    i.y = i.y * 0.16;
+    i.z = i.z * 0.16;
+  });
+  sus = recordings.filter((i) => {
+    i.x > 5 || i.y > 5 || i.z > 5;
+  });
+  if (sus.length > sus.length) {
+    resultat = "Suspect";
+  }
+  return resultat;
 };
 const TremorScreen = ({ route, navigation }) => {
   navigation = useNavigation();
-  const { PreTremor} = route.params;
+  const { PreTremor } = route.params;
   const [data, setData] = useState({ x: 0, y: 0, z: 0 });
   const [finalData, setFinalData] = useState([]);
   const [subscription, setSubscription] = useState(null);
@@ -56,8 +56,8 @@ const TremorScreen = ({ route, navigation }) => {
 
   const _unsubscribe = () => {
     subscription && subscription.remove();
-    let porte=score(finalData)
-    setResult(porte)
+    let porte = score(finalData);
+    setResult(porte);
     setSubscription(false);
     setCompleted({ isCompleted: true });
     // navigation.navigate("Drawing", { TremorScreen: ["Success"] });
@@ -76,18 +76,18 @@ const TremorScreen = ({ route, navigation }) => {
         x: {round(x)} y: {round(y)} z: {round(z)}
       </Text> */}
       <View style={(styles.buttonContainer, styles.centerElement)}>
-      <Text
-        style={{
-          fontWeight: "bold",
-          fontSize: 30,
-          marginLeft: 20,
-          color: "#1985A1",
-          textAlign: "center",
-          marginBottom: "5%",
-        }}
-      >
-        DEXTERITY TEST
-      </Text>
+        <Text
+          style={{
+            fontWeight: "bold",
+            fontSize: 30,
+            marginLeft: 20,
+            color: "#1985A1",
+            textAlign: "center",
+            marginBottom: "5%",
+          }}
+        >
+          DEXTERITY TEST
+        </Text>
         {(!isCompleted && (
           <TouchableOpacity
             onPress={subscription ? _unsubscribe : _subscribe}
@@ -104,10 +104,7 @@ const TremorScreen = ({ route, navigation }) => {
                 style={[styles.button1, styles.centerElement]}
                 onPress={() => {
                   navigation.navigate("Final", {
-                    FinalTest: [
-                      PreTremor,
-                      result
-                    ],
+                    FinalTest: [PreTremor, result],
                   });
                 }}
               >
@@ -172,15 +169,15 @@ const styles = StyleSheet.create({
   },
   centerElement: { justifyContent: "center", alignItems: "center" },
   button1: {
-    justifyContent:"center",
-    alignItems:"center",
-    marginTop:40,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 40,
     backgroundColor: "#004777",
     padding: 20,
-    marginHorizontal:100,
+    marginHorizontal: 100,
     borderRadius: 60,
     height: "1%",
-    marginBottom:"50%" 
+    marginBottom: "50%",
   },
 });
 

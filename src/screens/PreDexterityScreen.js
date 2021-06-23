@@ -24,7 +24,7 @@ const PreDexterityScreen = () => {
           color: "#1985A1",
           textAlign: "center",
           marginTop: "40%",
-          marginBottom:"10%"
+          marginBottom: "10%",
         }}
       >
         DEXTERITY TEST
@@ -35,7 +35,7 @@ const PreDexterityScreen = () => {
         Keep your wrist still and alternate tapping on the button with your
         index and middle finger, keeping a steady rhythm for 30 seconds.
       </Text>
-      <DexteritySVG style={{alignSelf:"center"}}/>
+      <DexteritySVG style={{ alignSelf: "center" }} />
       <TouchableOpacity
         style={styles.button}
         onPress={() => {

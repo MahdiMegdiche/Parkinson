@@ -82,20 +82,30 @@ const DexterityScreen = () => {
   return (
     <View style={[styles.container, styles.centerElement]}>
       <View style={{ paddingBottom: 32 }}>
-      <Text
-        style={{
-          fontWeight: "bold",
-          fontSize: 30,
-          marginLeft: 20,
-          color: "#1985A1",
-          textAlign: "center",
-          marginBottom: "5%",
-        }}
-      >
-        DEXTERITY TEST
-      </Text>
-      <Text style={{ color: "#373636", textAlign: "center", fontSize: 16 ,marginBottom:"40%",marginHorizontal:2}}>Tap on the button alternating between your index and middle finger with a steady rhythm
-</Text>
+        <Text
+          style={{
+            fontWeight: "bold",
+            fontSize: 30,
+            marginLeft: 20,
+            color: "#1985A1",
+            textAlign: "center",
+            marginBottom: "5%",
+          }}
+        >
+          DEXTERITY TEST
+        </Text>
+        <Text
+          style={{
+            color: "#373636",
+            textAlign: "center",
+            fontSize: 16,
+            marginBottom: "40%",
+            marginHorizontal: 2,
+          }}
+        >
+          Tap on the button alternating between your index and middle finger
+          with a steady rhythm
+        </Text>
         <CountDown
           digitStyle={{ backgroundColor: "#004677" }}
           digitTxtStyle={{ color: "#f2f2f2" }}
@@ -110,8 +120,8 @@ const DexterityScreen = () => {
           onFinish={() => {
             setCompleted({ isCompleted: true });
             // console.log("The recorded points are:", recordingPts);
-            let a=score(recordingPts);
-            setResult(a)
+            let a = score(recordingPts);
+            setResult(a);
             return [false, 0];
           }}
         ></CountDown>

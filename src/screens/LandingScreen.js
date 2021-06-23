@@ -3,7 +3,7 @@ import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Background from "../Components/Background";
 import { useNavigation } from "@react-navigation/native";
-import Logo from "../Components/Logo"
+import LogoB from "../Components/Logo";
 const LandingScreen = () => {
   navigation = useNavigation();
   return (
@@ -13,6 +13,7 @@ const LandingScreen = () => {
         colors={["#1985A1", "#1985A9", "#ffffff"]}
         style={styles.background}
       />
+      <LogoB style={{alignSelf:"center"}}/>
       <Background
         style={{
           height: 300,
@@ -22,29 +23,31 @@ const LandingScreen = () => {
           marginLeft: 50,
         }}
       />
-      <View style={{alignItems:"center"}}><Logo style={{background:"red"}}/></View>
+      <View style={{ alignItems: "center" }}></View>
       <Text
         style={{
           fontWeight: "bold",
           fontSize: 20,
           marginLeft: 20,
           color: "#1985A1",
-          textAlign: "center"
+          textAlign: "center",
         }}
       >
         Parkinson Better
       </Text>
       <View>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => {
-          navigation.navigate("Pretests");
-        }}
-      >
-        <Text style={{ color: "#f2f2f2", textAlign: "center", fontSize: 16 }}>
-          Start
-        </Text>
-      </TouchableOpacity></View>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            navigation.navigate("Pretests");
+          }}
+        >
+          
+          <Text style={{ color: "#f2f2f2", textAlign: "center", fontSize: 16 }}>
+            Start
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -72,15 +75,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
   },
   button: {
-    justifyContent:"center",
-    alignItems:"center",
-    marginTop:40,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 40,
     backgroundColor: "#004777",
     padding: 20,
-    marginHorizontal:140,
+    marginHorizontal: 140,
     borderRadius: 60,
     height: "1%",
-    marginBottom:"50%" 
+    marginBottom: "50%",
   },
 });
 export default LandingScreen;
