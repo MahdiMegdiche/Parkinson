@@ -4,9 +4,9 @@
     "slug": "ParkinsonDetector",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./img/logo.png",
+    "icon": "./assets/icon.png",
     "splash": {
-      "image": "./img/logo.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,12 +21,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./img/logo.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./img/logo.png"
+      "favicon": "./assets/favicon.png"
     }
   }
 }
